@@ -37,7 +37,7 @@ nav{
 .hero{padding:5rem 0 4rem;border-bottom:0.5px solid var(--border);}
 .eyebrow{font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--purple);margin-bottom:1rem;}
 .hero h1{font-size:clamp(40px,7vw,62px);font-weight:700;letter-spacing:-2px;line-height:1.05;color:var(--text);margin-bottom:1.25rem;}
-.hero-desc{font-size:17px;color:var(--text2);max-width:520px;line-height:1.65;margin-bottom:2rem;}
+.hero-desc{font-size:17px;color:var(--text2);max-width:620px;line-height:1.65;margin-bottom:2rem;}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;}
 .tag{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;border:0.5px solid;letter-spacing:0.02em;}
 .tag-p{color:var(--purple);background:var(--purple-bg);border-color:var(--purple-border);}
@@ -76,7 +76,7 @@ nav{
 .sl-learn{color:var(--purple);}
 .sl-impact{color:var(--amber);}
 .story p{font-size:14px;color:var(--text2);line-height:1.75;}
-.story p strong{color:var(--text);font-weight:500;}
+.story p strong{color:var(--text);font-weight:600;}
 
 .loom-wrap{border-top:0.5px solid var(--border);background:var(--bg3);padding:1.5rem 1.75rem;}
 .loom-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.75rem;}
@@ -121,13 +121,13 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
   <section class="hero">
     <div class="eyebrow">Creative AI Portfolio</div>
     <h1>Nicole<br>Raizman</h1>
-    <p class="hero-desc">CS student at Hebrew University building AI-powered tools that solve real problems. I work across the full stack — from prompt engineering and API integration to UX research and rapid prototyping.</p>
+    <p class="hero-desc">CS student at Hebrew University building AI-powered tools through hands-on experimentation. My work combines prompt design, workflow building, model behavior testing, parameter tuning, and product thinking to solve real problems I personally encountered or observed around me.</p>
     <div class="tags">
       <span class="tag tag-p">Generative AI</span>
-      <span class="tag tag-t">Full-stack dev</span>
+      <span class="tag tag-t">Workflow building</span>
       <span class="tag tag-c">Prompt engineering</span>
-      <span class="tag tag-pk">UX research</span>
-      <span class="tag tag-a">API integration</span>
+      <span class="tag tag-pk">Model experimentation</span>
+      <span class="tag tag-a">Parameter tuning</span>
     </div>
     <div class="hero-btns">
       <a class="btn btn-p" href="https://github.com/nicoleraizman" target="_blank">
@@ -142,32 +142,35 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
   <section class="projects" id="projects">
     <div class="section-label">Selected projects — 2024</div>
 
-    <!-- PROJECT 1: Virtual Try-On -->
     <article class="card card-purple">
       <div class="card-head">
         <div class="card-num">Project 01</div>
-        <div class="card-title">AI Virtual Try-On</div>
-        <div class="card-sub">How does that trench coat actually look on someone my height? I built a tool to answer that — and learned exactly why virtual try-on is a genuinely hard problem.</div>
+        <div class="card-title">FitCheck — AI Virtual Try-On</div>
+        <div class="card-sub">A project that started from a real personal question: how would a trench coat actually look on someone with proportions like mine, not on a very tall model? The process led me through failed 3D attempts, MediaPipe experimentation, and a pivot toward generative image workflows.</div>
         <div class="techs">
+          <span class="tech">Gemini API</span>
+          <span class="tech">MediaPipe</span>
           <span class="tech">Image generation</span>
-          <span class="tech">Prompt engineering</span>
-          <span class="tech">React</span>
-          <span class="tech">Parameter tuning</span>
-          <span class="tech">Diffusion models</span>
+          <span class="tech">Prompt design</span>
+          <span class="tech">Workflow pivoting</span>
         </div>
       </div>
       <div class="card-body">
         <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>Online shops show clothes on <strong>tall models</strong>. A long trench coat that looks elegant on a 180cm model could look completely different on a shorter person — but there's no way to know before buying. I wanted to fix that.</p>
+          <div class="slabel sl-prob">What problem did I encounter?</div>
+          <p>I wanted to know how a trench coat would look on <strong>someone with my proportions</strong>, not on a tall model in an online store. My first instinct was to build a real virtual try-on experience that could save a trip to a physical store. But I quickly discovered that realistic try-on is much harder than it looks, especially when product information from the store is limited.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-how">What I tried</div>
-          <p><strong>First attempt:</strong> overlay a 2D garment image onto a 3D body model. The dimension mismatch made it look completely wrong — fabric wouldn't warp naturally to the body. So I pivoted: instead of fitting a garment onto a body, I <strong>generated images of a person with specific measurements wearing an item described by its real dimensions</strong> — using length, width, and fabric type as input parameters. This produced much more realistic proportional results.</p>
+          <div class="slabel sl-how">What did I build / experiment with?</div>
+          <p>I first tried a <strong>3D-oriented approach using MediaPipe</strong>. The core issue was trying to place a <strong>2D garment onto a 3D body representation</strong>, which did not look realistic or convincing. That experiment showed me the limitations of the approach: missing garment geometry, limited store data, and a mismatch between how the clothing asset existed and how I wanted to represent the person.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-learn">What I learned</div>
-          <p>Virtual try-on is a genuinely hard problem — body estimation, garment physics, and proportional rendering are active research areas. I got hands-on experience with where current diffusion models succeed and fail, and identified paths forward using <strong>ControlNet and garment-specific fine-tuning</strong>.</p>
+          <div class="slabel sl-learn">How did I solve it?</div>
+          <p>Instead of forcing a weak solution, I <strong>pivoted</strong>. I changed the concept from strict virtual try-on into <strong>FitCheck</strong>: a workflow where the user provides a garment URL and selects parameters such as height, skin tone, and body-related attributes, and the system generates an image with the <strong>Gemini API</strong> to approximate how the item may look on someone with those characteristics. This was a much stronger creative AI solution because it used generation where simulation was failing.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-impact">What I learned</div>
+          <p>This project taught me that experimentation matters more than forcing the original idea. I learned when to abandon a technically elegant direction that was not producing good outputs, and instead design a workflow that better fits the available data and current model capabilities. It also gave me hands-on experience combining <strong>prompt design, parameter-based generation, model experimentation, and product reframing</strong>.</p>
         </div>
       </div>
       <div class="loom-wrap">
@@ -185,34 +188,35 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
       </div>
     </article>
 
-    <!-- PROJECT 2: Student Focus -->
     <article class="card card-teal">
       <div class="card-head">
         <div class="card-num">Project 02</div>
-        <div class="card-title">Student Focus Platform</div>
-        <div class="card-sub">A web app to help students stay concentrated and manage stress — built during wartime, tested with real users, iterated based on their feedback.</div>
+        <div class="card-title">Focus Study Platform</div>
+        <div class="card-sub">A study tool designed during wartime to help students recover concentration after interruptions such as sirens. This project combined timer logic, user flow design, and prompt engineering for empathy and focus recovery.</div>
         <div class="techs">
           <span class="tech">React</span>
-          <span class="tech">Claude Code</span>
-          <span class="tech">HTML/CSS</span>
-          <span class="tech">Usability testing</span>
+          <span class="tech">Gemini API</span>
+          <span class="tech">Prompt engineering</span>
+          <span class="tech">UX thinking</span>
+          <span class="tech">Workflow design</span>
         </div>
       </div>
       <div class="card-body">
         <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>During the war in Israel, students were struggling to focus. Constant news, anxiety, and interrupted routines made studying feel impossible. I wanted to build something that actually helped — not just a productivity timer, but something that <strong>acknowledged the emotional context</strong>.</p>
+          <div class="slabel sl-prob">What problem did I encounter?</div>
+          <p>This project started from a problem I personally felt and also heard from people around me. During the war, semester B started at my university, and students needed to keep studying while living with sudden sirens. The hard part was not only the interruption itself, but the fact that <strong>after returning from the shelter, it was difficult to get back into the same mental focus</strong>.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-how">How I built it</div>
-          <p>Built in React with <strong>Claude as my core AI collaborator</strong> — not just autocomplete, but active collaborators in scaffolding components and debugging logic. Ran qualitative usability sessions with real students, gathered direct feedback, and iterated on UX flows and accessibility across three major design versions.</p>
+          <div class="slabel sl-how">What did I build / experiment with?</div>
+          <p>I built a platform where users can set <strong>study time, break time, and task goals</strong>, then begin a focus session. The system includes a button the user can press if a siren happens. When that happens, a <strong>Gemini-powered LLM flow</strong> begins: it tells the user to go to a protected space, waits there, and when the user returns, it responds empathetically and asks what they were working on immediately before the interruption.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-impact">Impact</div>
-          <p>Multiple students used the app during exam periods. Their feedback directly shaped the onboarding flow, the stress-check interface, and the focus session timer — each iteration measurably improving retention and ease of use.</p>
-          <div style="margin-top: 1.5 rem;">
-    <img src="focus-app-compliment.jpeg" alt="WhatsApp message complimenting the Focus app" style="max-width: 320px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
-  </div>
+          <div class="slabel sl-learn">How did I solve it?</div>
+          <p>I wrote prompts that explicitly emphasized that the model should be <strong>empathetic, calming, and grounding</strong>. I wanted the assistant not just to respond correctly, but to speak in a way that helps the user feel supported and gradually return to focus. I also considered connecting the system to the Home Front Command API so the timer would stop automatically, but I intentionally chose a <strong>manual button-based workflow</strong> because pressing the button gives the user a sense of control in a situation defined by lack of control.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-impact">What I learned</div>
+          <p>This project taught me that with LLMs, you can shape not only <strong>what the model does</strong> but also <strong>the emotional tone it brings into the user experience</strong>. I learned how prompt design can influence reassurance, trust, and attention recovery, and how workflow design choices can be just as important as technical automation.</p>
         </div>
       </div>
       <div class="loom-wrap">
@@ -230,45 +234,50 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
       </div>
     </article>
 
-    <!-- PROJECT 3: Echo -->
     <article class="card card-pink">
       <div class="card-head">
         <div class="card-num">Project 03</div>
         <div class="card-title">Echo — AI-moderated chat</div>
-        <div class="card-sub">A platform for discussing controversial topics, with a real-time AI moderation layer that keeps conversations civil without silencing disagreement.</div>
+        <div class="card-sub">A chat platform for discussing controversial topics, where I explored a core creative AI challenge: how to define, detect, and rephrase offensive language in a way that is consistent, useful, and fair.</div>
         <div class="techs">
-          <span class="tech">JavaScript</span>
           <span class="tech">Groq API</span>
+          <span class="tech">Prompt engineering</span>
+          <span class="tech">Temperature tuning</span>
           <span class="tech">PostgreSQL</span>
-          <span class="tech">Render</span>
-          <span class="tech">Real-time moderation</span>
+          <span class="tech">Model experimentation</span>
         </div>
       </div>
       <div class="card-body">
         <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>Online discussions about controversial topics tend to collapse into toxicity fast. Existing platforms either over-censor or do nothing. I wanted to explore whether <strong>AI could moderate in a way that felt fair</strong> — filtering genuine harm without silencing legitimate disagreement.</p>
+          <div class="slabel sl-prob">What problem did I encounter?</div>
+          <p>While building Echo, I ran into a surprisingly hard question: <strong>what actually counts as offensive?</strong> At first, my prompt simply asked the model whether a message was offensive or disrespectful, and if so, to suggest three better alternatives. But the results were unstable. Some clearly acceptable messages passed, while others did not. One especially surprising example was the simple message <strong>“hi”</strong>, which the model sometimes treated as offensive and sometimes did not.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-how">How I built it</div>
-          <p>Integrated the <strong>Groq API</strong> to run real-time content moderation on every message before it's posted. Built the full stack — frontend, backend, PostgreSQL database, deployed on Render. Collaborated with students across design, social science, and engineering to define what "harmful" actually means in context.</p>
+          <div class="slabel sl-how">What did I build / experiment with?</div>
+          <p>To understand the behavior, I experimented directly with the model and also used the Groq desktop chat to ask <strong>why “hi” could be interpreted as offensive</strong>. The explanation was that a very short message may be interpreted as rude, abrupt, or low-effort. I also tested <strong>temperature changes</strong>, but parameter tuning alone did not solve the inconsistency. That made it clear that the issue was not just randomness — it was prompt ambiguity.</p>
         </div>
         <div class="story">
-          <div class="slabel sl-learn">What I learned</div>
-          <p>Designing AI moderation is as much a <strong>product and ethics problem</strong> as a technical one. The hardest part wasn't the API integration — it was deciding what the model should and shouldn't flag, and building a system where that judgment felt legitimate to users.</p>
+          <div class="slabel sl-learn">How did I solve it?</div>
+          <p>I rewrote the moderation prompt into a much more detailed instruction set with <strong>clear acceptance and rejection rules</strong>, giving the model stronger boundaries around what should count as offensive and what should not. This improved consistency and made the system more aligned with the product goal. The process taught me that LLMs are <strong>not binary machines</strong> with clean 0/1 logic. They are probabilistic systems, and the quality of their behavior depends heavily on how precisely you frame the task.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-impact">What I learned</div>
+          <p>This project gave me hands-on experience with <strong>prompt design, model interpretation, workflow iteration, and parameter testing</strong>. More importantly, it taught me that building AI systems is not only about calling an API — it is about defining concepts clearly enough that the model can act on them consistently in a real product context.</p>
         </div>
       </div>
       <div class="loom-wrap">
         <div class="loom-label">Demo walkthrough</div>
         <div class="loom-embed">
-          <iframe src="https://www.loom.com/embed/dbee6525f88e4bc6a5ddf6be9db1a8cd" allowfullscreen></iframe>        </div>
+          <iframe src="https://www.loom.com/embed/dbee6525f88e4bc6a5ddf6be9db1a8cd" allowfullscreen></iframe>
+        </div>
       </div>
       <div class="card-foot">
         <a class="foot-btn foot-btn-pk" href="https://echochat-f120.onrender.com/chat.html?topic=Recruitment_law" target="_blank">
           <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
           Live app
         </a>
-          <a class="foot-btn" href="https://www.loom.com/share/dbee6525f88e4bc6a5ddf6be9db1a8cd" target="_blank">Watch on Loom</a>      </div>
+        <a class="foot-btn" href="https://www.loom.com/share/dbee6525f88e4bc6a5ddf6be9db1a8cd" target="_blank">Watch on Loom</a>
+      </div>
     </article>
 
   </section>
