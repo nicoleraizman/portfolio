@@ -142,9 +142,55 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
   <section class="projects" id="projects">
     <div class="section-label">Selected projects — 2024</div>
 
-    <article class="card card-purple">
+     <article class="card card-pink">
       <div class="card-head">
         <div class="card-num">Project 01</div>
+        <div class="card-title">Echo — AI-moderated chat</div>
+        <div class="card-sub">A chat platform for discussing controversial topics, where I explored a core creative AI challenge: how to define, detect, and rephrase offensive language in a way that is consistent, useful, and fair.</div>
+        <div class="techs">
+          <span class="tech">Groq API</span>
+          <span class="tech">Prompt engineering</span>
+          <span class="tech">Temperature tuning</span>
+          <span class="tech">PostgreSQL</span>
+          <span class="tech">Model experimentation</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="story">
+          <div class="slabel sl-prob">What problem did I encounter?</div>
+          <p>While building Echo, I ran into a surprisingly hard question: <strong>what actually counts as offensive?</strong> At first, my prompt simply asked the model whether a message was offensive or disrespectful, and if so, to suggest three better alternatives. But the results were unstable. Some clearly acceptable messages passed, while others did not. One especially surprising example was the simple message <strong>“hi”</strong>, which the model sometimes treated as offensive and sometimes did not.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-how">What did I build / experiment with?</div>
+          <p>To understand the behavior, I experimented directly with the model and also used the Groq desktop chat to ask <strong>why “hi” could be interpreted as offensive</strong>. The explanation was that a very short message may be interpreted as rude, abrupt, or low-effort. I also tested <strong>temperature changes</strong>, but parameter tuning alone did not solve the inconsistency. That made it clear that the issue was not just randomness — it was prompt ambiguity.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-learn">How did I solve it?</div>
+          <p>I rewrote the moderation prompt into a much more detailed instruction set with <strong>clear acceptance and rejection rules</strong>, giving the model stronger boundaries around what should count as offensive and what should not. This improved consistency and made the system more aligned with the product goal. The process taught me that LLMs are <strong>not binary machines</strong> with clean 0/1 logic. They are probabilistic systems, and the quality of their behavior depends heavily on how precisely you frame the task.</p>
+        </div>
+        <div class="story">
+          <div class="slabel sl-impact">What I learned</div>
+          <p>This project gave me hands-on experience with <strong>prompt design, model interpretation, workflow iteration, and parameter testing</strong>. More importantly, it taught me that building AI systems is not only about calling an API — it is about defining concepts clearly enough that the model can act on them consistently in a real product context.</p>
+        </div>
+      </div>
+      <div class="loom-wrap">
+        <div class="loom-label">Demo walkthrough</div>
+        <div class="loom-embed">
+          <iframe src="https://www.loom.com/embed/dbee6525f88e4bc6a5ddf6be9db1a8cd" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="card-foot">
+        <a class="foot-btn foot-btn-pk" href="https://echochat-f120.onrender.com/chat.html?topic=Recruitment_law" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
+          Live app
+        </a>
+        <a class="foot-btn" href="https://www.loom.com/share/dbee6525f88e4bc6a5ddf6be9db1a8cd" target="_blank">Watch on Loom</a>
+      </div>
+    </article>
+
+    <article class="card card-purple">
+      <div class="card-head">
+        <div class="card-num">Project 02</div>
         <div class="card-title">FitCheck — AI Virtual Try-On</div>
         <div class="card-sub">A project that started from a real personal question: how would a trench coat actually look on someone with proportions like mine, not on a very tall model? The process led me through failed 3D attempts, MediaPipe experimentation, and a pivot toward generative image workflows.</div>
         <div class="techs">
@@ -190,7 +236,7 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
 
     <article class="card card-teal">
       <div class="card-head">
-        <div class="card-num">Project 02</div>
+        <div class="card-num">Project 03</div>
         <div class="card-title">Focus Study Platform</div>
         <div class="card-sub">A study tool designed during wartime to help students recover concentration after interruptions such as sirens. This project combined timer logic, user flow design, and prompt engineering for empathy and focus recovery.</div>
         <div class="techs">
@@ -234,51 +280,7 @@ footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
       </div>
     </article>
 
-    <article class="card card-pink">
-      <div class="card-head">
-        <div class="card-num">Project 03</div>
-        <div class="card-title">Echo — AI-moderated chat</div>
-        <div class="card-sub">A chat platform for discussing controversial topics, where I explored a core creative AI challenge: how to define, detect, and rephrase offensive language in a way that is consistent, useful, and fair.</div>
-        <div class="techs">
-          <span class="tech">Groq API</span>
-          <span class="tech">Prompt engineering</span>
-          <span class="tech">Temperature tuning</span>
-          <span class="tech">PostgreSQL</span>
-          <span class="tech">Model experimentation</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="story">
-          <div class="slabel sl-prob">What problem did I encounter?</div>
-          <p>While building Echo, I ran into a surprisingly hard question: <strong>what actually counts as offensive?</strong> At first, my prompt simply asked the model whether a message was offensive or disrespectful, and if so, to suggest three better alternatives. But the results were unstable. Some clearly acceptable messages passed, while others did not. One especially surprising example was the simple message <strong>“hi”</strong>, which the model sometimes treated as offensive and sometimes did not.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-how">What did I build / experiment with?</div>
-          <p>To understand the behavior, I experimented directly with the model and also used the Groq desktop chat to ask <strong>why “hi” could be interpreted as offensive</strong>. The explanation was that a very short message may be interpreted as rude, abrupt, or low-effort. I also tested <strong>temperature changes</strong>, but parameter tuning alone did not solve the inconsistency. That made it clear that the issue was not just randomness — it was prompt ambiguity.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-learn">How did I solve it?</div>
-          <p>I rewrote the moderation prompt into a much more detailed instruction set with <strong>clear acceptance and rejection rules</strong>, giving the model stronger boundaries around what should count as offensive and what should not. This improved consistency and made the system more aligned with the product goal. The process taught me that LLMs are <strong>not binary machines</strong> with clean 0/1 logic. They are probabilistic systems, and the quality of their behavior depends heavily on how precisely you frame the task.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-impact">What I learned</div>
-          <p>This project gave me hands-on experience with <strong>prompt design, model interpretation, workflow iteration, and parameter testing</strong>. More importantly, it taught me that building AI systems is not only about calling an API — it is about defining concepts clearly enough that the model can act on them consistently in a real product context.</p>
-        </div>
-      </div>
-      <div class="loom-wrap">
-        <div class="loom-label">Demo walkthrough</div>
-        <div class="loom-embed">
-          <iframe src="https://www.loom.com/embed/dbee6525f88e4bc6a5ddf6be9db1a8cd" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="card-foot">
-        <a class="foot-btn foot-btn-pk" href="https://echochat-f120.onrender.com/chat.html?topic=Recruitment_law" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
-          Live app
-        </a>
-        <a class="foot-btn" href="https://www.loom.com/share/dbee6525f88e4bc6a5ddf6be9db1a8cd" target="_blank">Watch on Loom</a>
-      </div>
-    </article>
+   
 
   </section>
 </div>
