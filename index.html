@@ -4,287 +4,122 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nicole Raizman — Creative AI Portfolio</title>
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-:root{
-  --bg:#0e0e11;--bg2:#16161a;--bg3:#1e1e24;
-  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
-  --text:#f0f0f4;--text2:#9898a8;--text3:#52526a;
-  --purple:#9b8fef;--purple-bg:rgba(155,143,239,0.1);--purple-border:rgba(155,143,239,0.25);
-  --teal:#3ecfaa;--teal-bg:rgba(62,207,170,0.09);--teal-border:rgba(62,207,170,0.25);
-  --pink:#e87aad;--pink-bg:rgba(232,122,173,0.09);--pink-border:rgba(232,122,173,0.25);
-  --amber:#f0a946;--coral:#f07a5a;
-}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.6;}
-a{color:inherit;text-decoration:none;}
-
-nav{
-  position:sticky;top:0;z-index:100;
-  background:rgba(14,14,17,0.9);
-  backdrop-filter:blur(14px);
-  border-bottom:0.5px solid var(--border);
-  padding:0 2rem;height:52px;
-  display:flex;align-items:center;justify-content:space-between;
-}
-.nav-name{font-size:14px;font-weight:600;color:var(--text);}
-.nav-links{display:flex;gap:1.5rem;}
-.nav-links a{font-size:13px;color:var(--text2);transition:color 0.15s;}
-.nav-links a:hover{color:var(--text);}
-
-.container{max-width:780px;margin:0 auto;padding:0 1.5rem;}
-
-.hero{padding:5rem 0 4rem;border-bottom:0.5px solid var(--border);}
-.eyebrow{font-size:11px;font-weight:600;letter-spacing:0.13em;text-transform:uppercase;color:var(--purple);margin-bottom:1rem;}
-.hero h1{font-size:clamp(40px,7vw,62px);font-weight:700;letter-spacing:-2px;line-height:1.05;color:var(--text);margin-bottom:1.25rem;}
-.hero-desc{font-size:17px;color:var(--text2);max-width:520px;line-height:1.65;margin-bottom:2rem;}
-.tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2.5rem;}
-.tag{font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;border:0.5px solid;letter-spacing:0.02em;}
-.tag-p{color:var(--purple);background:var(--purple-bg);border-color:var(--purple-border);}
-.tag-t{color:var(--teal);background:var(--teal-bg);border-color:var(--teal-border);}
-.tag-pk{color:var(--pink);background:var(--pink-bg);border-color:var(--pink-border);}
-.tag-a{color:var(--amber);background:rgba(240,169,70,0.09);border-color:rgba(240,169,70,0.25);}
-.tag-c{color:var(--coral);background:rgba(240,122,90,0.09);border-color:rgba(240,122,90,0.25);}
-.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
-.btn{font-size:13px;font-weight:500;padding:9px 18px;border-radius:8px;border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;transition:background 0.15s,border-color 0.15s;display:inline-flex;align-items:center;gap:7px;}
-.btn:hover{background:var(--bg3);border-color:rgba(255,255,255,0.2);}
-.btn-p{background:var(--purple-bg);border-color:var(--purple-border);color:var(--purple);}
-.btn-p:hover{background:rgba(155,143,239,0.18);}
-
-.projects{padding:4rem 0;}
-.section-label{font-size:11px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:2rem;}
-
-.card{border:0.5px solid var(--border);border-radius:16px;background:var(--bg2);margin-bottom:2rem;overflow:hidden;transition:border-color 0.2s;}
-.card:hover{border-color:var(--border2);}
-.card-purple{border-top:2.5px solid var(--purple);}
-.card-teal{border-top:2.5px solid var(--teal);}
-.card-pink{border-top:2.5px solid var(--pink);}
-
-.card-head{padding:1.75rem 1.75rem 1.25rem;}
-.card-num{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);margin-bottom:8px;}
-.card-title{font-size:22px;font-weight:600;color:var(--text);margin-bottom:8px;}
-.card-sub{font-size:14px;color:var(--text2);line-height:1.6;margin-bottom:1.25rem;}
-.techs{display:flex;flex-wrap:wrap;gap:6px;}
-.tech{font-size:11px;font-weight:500;padding:3px 10px;border-radius:20px;border:0.5px solid var(--border2);color:var(--text2);background:var(--bg3);}
-
-.card-body{border-top:0.5px solid var(--border);}
-.story{padding:1.2rem 1.75rem;border-bottom:0.5px solid var(--border);}
-.story:last-of-type{border-bottom:none;}
-.slabel{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:6px;}
-.sl-prob{color:var(--coral);}
-.sl-how{color:var(--teal);}
-.sl-learn{color:var(--purple);}
-.sl-impact{color:var(--amber);}
-.story p{font-size:14px;color:var(--text2);line-height:1.75;}
-.story p strong{color:var(--text);font-weight:500;}
-
-.loom-wrap{border-top:0.5px solid var(--border);background:var(--bg3);padding:1.5rem 1.75rem;}
-.loom-label{font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.75rem;}
-.loom-embed{position:relative;padding-bottom:56.25%;height:0;border-radius:10px;overflow:hidden;border:0.5px solid var(--border2);}
-.loom-embed iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:none;}
-
-.card-foot{border-top:0.5px solid var(--border);padding:1rem 1.75rem;display:flex;gap:8px;flex-wrap:wrap;align-items:center;}
-.foot-btn{font-size:12px;font-weight:500;padding:7px 14px;border-radius:8px;border:0.5px solid var(--border2);background:var(--bg2);color:var(--text);cursor:pointer;transition:background 0.15s;display:inline-flex;align-items:center;gap:6px;}
-.foot-btn:hover{background:var(--bg);}
-.foot-btn-p{background:var(--purple-bg);border-color:var(--purple-border);color:var(--purple);}
-.foot-btn-p:hover{background:rgba(155,143,239,0.18);}
-.foot-btn-t{background:var(--teal-bg);border-color:var(--teal-border);color:var(--teal);}
-.foot-btn-t:hover{background:rgba(62,207,170,0.16);}
-.foot-btn-pk{background:var(--pink-bg);border-color:var(--pink-border);color:var(--pink);}
-.foot-btn-pk:hover{background:rgba(232,122,173,0.16);}
-
-footer{border-top:0.5px solid var(--border);padding:3rem 0;text-align:center;}
-footer p{font-size:13px;color:var(--text3);margin-bottom:1rem;}
-.foot-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;}
-.foot-links a{font-size:13px;color:var(--text2);transition:color 0.15s;}
-.foot-links a:hover{color:var(--text);}
-
-@media(max-width:600px){
-  .hero{padding:3rem 0 2.5rem;}
-  .card-head,.story,.loom-wrap,.card-foot{padding-left:1.25rem;padding-right:1.25rem;}
-}
-</style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-name">Nicole Raizman</div>
-  <div class="nav-links">
-    <a href="#projects">Projects</a>
-    <a href="https://github.com/nicoleraizman" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/nicoleraizman" target="_blank">LinkedIn</a>
-  </div>
-</nav>
+<h1>Nicole Raizman — Creative AI Portfolio</h1>
+<p>
+CS student building AI-driven products through hands-on experimentation. I focus on prompt design, workflow building, parameter tuning, and real-world iteration with LLMs. I build solutions to problems I encounter — combining creativity, technical depth, and user-centered thinking.
+</p>
 
-<div class="container">
+<hr>
 
-  <section class="hero">
-    <div class="eyebrow">Creative AI Portfolio</div>
-    <h1>Nicole<br>Raizman</h1>
-    <p class="hero-desc">CS student at Hebrew University building AI-powered tools that solve real problems. I work across the full stack — from prompt engineering and API integration to UX research and rapid prototyping.</p>
-    <div class="tags">
-      <span class="tag tag-p">Generative AI</span>
-      <span class="tag tag-t">Full-stack dev</span>
-      <span class="tag tag-c">Prompt engineering</span>
-      <span class="tag tag-pk">UX research</span>
-      <span class="tag tag-a">API integration</span>
-    </div>
-    <div class="hero-btns">
-      <a class="btn btn-p" href="https://github.com/nicoleraizman" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub
-      </a>
-      <a class="btn" href="https://www.linkedin.com/in/nicoleraizman" target="_blank">LinkedIn</a>
-      <a class="btn" href="mailto:nicoleraizman@gmail.com">nicoleraizman@gmail.com</a>
-    </div>
-  </section>
+<h2>Echo — AI Moderated Chat</h2>
 
-  <section class="projects" id="projects">
-    <div class="section-label">Selected projects — 2024</div>
+<h3>Problem</h3>
+<p>
+While building a real-time moderation system, I encountered a core ambiguity: what does "offensive" actually mean? Even simple messages like "hi" were sometimes flagged as offensive, while other times they were not. This revealed that LLM outputs are not deterministic and depend heavily on interpretation.
+</p>
 
-    <!-- PROJECT 1: Virtual Try-On -->
-    <article class="card card-purple">
-      <div class="card-head">
-        <div class="card-num">Project 01</div>
-        <div class="card-title">AI Virtual Try-On</div>
-        <div class="card-sub">How does that trench coat actually look on someone my height? I built a tool to answer that — and learned exactly why virtual try-on is a genuinely hard problem.</div>
-        <div class="techs">
-          <span class="tech">Image generation</span>
-          <span class="tech">Prompt engineering</span>
-          <span class="tech">React</span>
-          <span class="tech">Parameter tuning</span>
-          <span class="tech">Diffusion models</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>Online shops show clothes on <strong>tall models</strong>. A long trench coat that looks elegant on a 180cm model could look completely different on a shorter person — but there's no way to know before buying. I wanted to fix that.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-how">What I tried</div>
-          <p><strong>First attempt:</strong> overlay a 2D garment image onto a 3D body model. The dimension mismatch made it look completely wrong — fabric wouldn't warp naturally to the body. So I pivoted: instead of fitting a garment onto a body, I <strong>generated images of a person with specific measurements wearing an item described by its real dimensions</strong> — using length, width, and fabric type as input parameters. This produced much more realistic proportional results.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-learn">What I learned</div>
-          <p>Virtual try-on is a genuinely hard problem — body estimation, garment physics, and proportional rendering are active research areas. I got hands-on experience with where current diffusion models succeed and fail, and identified paths forward using <strong>ControlNet and garment-specific fine-tuning</strong>.</p>
-        </div>
-      </div>
-      <div class="loom-wrap">
-        <div class="loom-label">Demo walkthrough</div>
-        <div class="loom-embed">
-          <iframe src="https://www.loom.com/embed/01f3ee50f67b4a6e86a486f101649e8b" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="card-foot">
-        <a class="foot-btn foot-btn-p" href="https://fit-check-production-36b4.up.railway.app/" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
-          Live app
-        </a>
-        <a class="foot-btn" href="https://www.loom.com/share/01f3ee50f67b4a6e86a486f101649e8b" target="_blank">Watch on Loom</a>
-      </div>
-    </article>
+<h3>What I experimented with</h3>
+<p>
+I started with a simple prompt: classify whether a message is offensive, and if so — generate three alternative respectful versions. However, the results were inconsistent. I experimented with:
+<ul>
+<li>Different prompt formulations</li>
+<li>Temperature parameter tuning</li>
+<li>Direct interaction with the model (Groq) to understand its reasoning</li>
+</ul>
+The model explained that short messages like "hi" may be interpreted as impolite due to lack of effort — revealing implicit assumptions.
+</p>
 
-    <!-- PROJECT 2: Student Focus -->
-    <article class="card card-teal">
-      <div class="card-head">
-        <div class="card-num">Project 02</div>
-        <div class="card-title">Student Focus Platform</div>
-        <div class="card-sub">A web app to help students stay concentrated and manage stress — built during wartime, tested with real users, iterated based on their feedback.</div>
-        <div class="techs">
-          <span class="tech">React</span>
-          <span class="tech">Claude Code</span>
-          <span class="tech">HTML/CSS</span>
-          <span class="tech">Usability testing</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>During the war in Israel, students were struggling to focus. Constant news, anxiety, and interrupted routines made studying feel impossible. I wanted to build something that actually helped — not just a productivity timer, but something that <strong>acknowledged the emotional context</strong>.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-how">How I built it</div>
-          <p>Built in React with <strong>Claude as my core AI collaborator</strong> — not just autocomplete, but active collaborators in scaffolding components and debugging logic. Ran qualitative usability sessions with real students, gathered direct feedback, and iterated on UX flows and accessibility across three major design versions.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-impact">Impact</div>
-          <p>Multiple students used the app during exam periods. Their feedback directly shaped the onboarding flow, the stress-check interface, and the focus session timer — each iteration measurably improving retention and ease of use.</p>
-          <div style="margin-top: 1.5 rem;">
-    <img src="focus-app-compliment.jpeg" alt="WhatsApp message complimenting the Focus app" style="max-width: 320px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.12);" />
-  </div>
-        </div>
-      </div>
-      <div class="loom-wrap">
-        <div class="loom-label">Demo walkthrough</div>
-        <div class="loom-embed">
-          <iframe src="https://www.loom.com/embed/f074e57b08934b7d8834f5381cb7900a" allowfullscreen></iframe>
-        </div>
-      </div>
-      <div class="card-foot">
-        <a class="foot-btn foot-btn-t" href="https://focus-mode-seven.vercel.app/" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
-          Live app
-        </a>
-        <a class="foot-btn" href="https://www.loom.com/share/f074e57b08934b7d8834f5381cb7900a" target="_blank">Watch on Loom</a>
-      </div>
-    </article>
+<h3>Solution</h3>
+<p>
+I redesigned the prompt into a structured set of explicit rules defining acceptable vs unacceptable messages. This significantly improved consistency.
 
-    <!-- PROJECT 3: Echo -->
-    <article class="card card-pink">
-      <div class="card-head">
-        <div class="card-num">Project 03</div>
-        <div class="card-title">Echo — AI-moderated chat</div>
-        <div class="card-sub">A platform for discussing controversial topics, with a real-time AI moderation layer that keeps conversations civil without silencing disagreement.</div>
-        <div class="techs">
-          <span class="tech">JavaScript</span>
-          <span class="tech">Groq API</span>
-          <span class="tech">PostgreSQL</span>
-          <span class="tech">Render</span>
-          <span class="tech">Real-time moderation</span>
-        </div>
-      </div>
-      <div class="card-body">
-        <div class="story">
-          <div class="slabel sl-prob">The problem</div>
-          <p>Online discussions about controversial topics tend to collapse into toxicity fast. Existing platforms either over-censor or do nothing. I wanted to explore whether <strong>AI could moderate in a way that felt fair</strong> — filtering genuine harm without silencing legitimate disagreement.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-how">How I built it</div>
-          <p>Integrated the <strong>Groq API</strong> to run real-time content moderation on every message before it's posted. Built the full stack — frontend, backend, PostgreSQL database, deployed on Render. Collaborated with students across design, social science, and engineering to define what "harmful" actually means in context.</p>
-        </div>
-        <div class="story">
-          <div class="slabel sl-learn">What I learned</div>
-          <p>Designing AI moderation is as much a <strong>product and ethics problem</strong> as a technical one. The hardest part wasn't the API integration — it was deciding what the model should and shouldn't flag, and building a system where that judgment felt legitimate to users.</p>
-        </div>
-      </div>
-      <div class="loom-wrap">
-        <div class="loom-label">Demo walkthrough</div>
-        <div class="loom-embed">
-          <iframe src="https://www.loom.com/embed/dbee6525f88e4bc6a5ddf6be9db1a8cd" allowfullscreen></iframe>        </div>
-      </div>
-      <div class="card-foot">
-        <a class="foot-btn foot-btn-pk" href="https://echochat-f120.onrender.com/chat.html?topic=Recruitment_law" target="_blank">
-          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 3H3a1 1 0 00-1 1v9a1 1 0 001 1h9a1 1 0 001-1V9M10 2h4m0 0v4m0-4L7 9"/></svg>
-          Live app
-        </a>
-          <a class="foot-btn" href="https://www.loom.com/share/dbee6525f88e4bc6a5ddf6be9db1a8cd" target="_blank">Watch on Loom</a>      </div>
-    </article>
+Key insight: LLMs are not binary systems (0/1). They require precise instruction design and constraint definition.
+</p>
 
-  </section>
-</div>
+<h3>What I learned</h3>
+<p>
+Prompt engineering is a core engineering discipline. You can control not only outputs — but reasoning, interpretation, and tone.
+</p>
 
-<footer>
-  <div class="container">
-    <p>Nicole Raizman · CS @ Hebrew University · Open to Creative AI roles</p>
-    <div class="foot-links">
-      <a href="mailto:nicoleraizman@gmail.com">nicoleraizman@gmail.com</a>
-      <a href="https://github.com/nicoleraizman" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/nicoleraizman" target="_blank">LinkedIn</a>
-      <a href="tel:0584012892">058-4012892</a>
-    </div>
-  </div>
-</footer>
+<hr>
+
+<h2>FitCheck — AI Virtual Try-On (Pivoted)</h2>
+
+<h3>Problem</h3>
+<p>
+I wanted to understand how clothes (e.g., a trench coat) would look on someone with my proportions — not on tall models.
+</p>
+
+<h3>What I experimented with</h3>
+<p>
+Initial approach: 3D try-on using MediaPipe. The challenge was combining a 2D garment with a 3D body — which produced unrealistic results.
+
+This exposed two core issues:
+<ul>
+<li>Dimensional mismatch (2D vs 3D)</li>
+<li>Lack of structured garment data</li>
+</ul>
+</p>
+
+<h3>Solution (Pivot)</h3>
+<p>
+I pivoted to a generative approach:
+<ul>
+<li>User defines body parameters (height, proportions, skin tone)</li>
+<li>Garment is provided via URL</li>
+<li>Image is generated using Gemini API</li>
+</ul>
+
+Instead of simulating physics, I generated realistic approximations tailored to user attributes.
+</p>
+
+<h3>What I learned</h3>
+<p>
+Knowing when to pivot is critical. Generative models can outperform simulation when data is incomplete.
+</p>
+
+<hr>
+
+<h2>Focus Study Platform</h2>
+
+<h3>Problem</h3>
+<p>
+During wartime, students lose focus due to sudden interruptions (e.g., alarms). Returning to concentration is cognitively difficult.
+</p>
+
+<h3>What I built / experimented with</h3>
+<p>
+I built a system combining:
+<ul>
+<li>Task planning</li>
+<li>Focus timers</li>
+<li>LLM interaction during interruptions</li>
+</ul>
+
+When an alarm occurs, the user triggers an interaction with Gemini.
+</p>
+
+<h3>Solution</h3>
+<p>
+The LLM:
+<ul>
+<li>Responds empathetically</li>
+<li>Waits for the user</li>
+<li>Helps reconstruct what the user was doing before interruption</li>
+</ul>
+
+I explicitly engineered prompts to control tone (empathetic, calming) and guide cognitive recovery.
+
+Design decision: manual "alarm" button instead of automatic detection — to give users a sense of control in an uncontrollable situation.
+</p>
+
+<h3>What I learned</h3>
+<p>
+LLMs can shape emotional experience, not just outputs. Prompting affects tone, trust, and user recovery.
+</p>
 
 </body>
 </html>
